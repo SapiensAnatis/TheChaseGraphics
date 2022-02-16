@@ -36,9 +36,8 @@ show_controls = function() {
             Up arrow key: Advance chaser
             Down arrow key: Push back chaser
 
-            I: Pause timer
-            O: Resume timer
-            P: Reset timer
+            P: Pause/unpause timer and music
+            I: Reset timer
 
             H: Show this menu again
         `
@@ -72,28 +71,28 @@ $(document).keydown(function(e) {
         }
     }
 
-    // Pause timer (I)
-    if (e.keyCode == 73) {
-        do_countdown = false;
-        // Pause audio
-        $("#finalchase")[0].pause();
-
-        // Play sound
-        $("#stoptheclock")[0].play();
-    }
-
-    // Resume timer (O)
-    if (e.keyCode == 79) {
-        do_countdown = true;
-        $("#finalchase")[0].play();
-    }
-
-    // Reset timer (P) and pause
+    // Pause/resume timer (P)
     if (e.keyCode == 80) {
+        // If game is currently running
+        if (do_countdown == true) {
+            do_countdown = false;
+            // Pause audio
+            $("#finalchase")[0].pause();
+
+            // Play sound
+            $("#stoptheclock")[0].play();
+        } else {
+            do_countdown = true;
+            $("#finalchase")[0].play();
+        }
+    }
+
+    // Reset timer (I) and pause
+    if (e.keyCode == 73) {
         time = time_init;
         $("#timer").html(get_formatted_time(time));
         
-        // Pause audio
+        // Reset audio
         $("#finalchase")[0].pause();
         // Reset song
         $("#finalchase")[0].currentTime = 0;
