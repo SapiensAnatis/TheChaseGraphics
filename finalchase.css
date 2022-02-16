@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Futura';
+    src: url("fonts/futura.ttf");
+}
+
+.square{
+    margin-left: 5px;
+    width:100px;
+    height:100px;
+    background: #1a5cde;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 100px;
+    font-family: 'Futura';
+    font-size: 48px;
+    color: white;
+}
+
+#squares
+{
+    width: 90%;
+    margin-left: 5%;
+    height: 100px;
+    line-height: 105px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#timer
+{
+    text-align: center;
+    width: 100%;
+    margin-top: 10%;
+    color:white;
+    font-family: 'Futura';
+    font-size: 100px;
+}
+
+body
+{
+    background-color: black;
+}
